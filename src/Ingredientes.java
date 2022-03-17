@@ -37,4 +37,9 @@ public class Ingredientes {
     }
 
     public Ingredientes(){}
+
+    @Override
+    public String toString() {
+        return  nombre ;
+    }
 }

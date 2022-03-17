@@ -51,6 +51,7 @@ public class Main {
         System.out.println("1º Agregar un ingrediente nuevo");
         System.out.println("2º Agregar una receta nueva");
         System.out.println("3º Ver mi recetario");
+        System.out.println("4º Salir");
         //pendiente opcion para salir
 
         int respuesta;
@@ -110,6 +111,7 @@ public class Main {
                             pasosReceta.add(res);
                         }
                     } while (!res.equals("0"));
+
                     nueva.setPasos(pasosReceta);
                     miRecetario.getRecetas().add(nueva);
 
