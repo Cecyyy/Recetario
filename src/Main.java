@@ -53,66 +53,76 @@ public class Main {
         System.out.println("3º Ver mi recetario");
         //pendiente opcion para salir
 
-        Scanner scanner= new Scanner(System.in);
         int respuesta;
-        respuesta = scanner.nextInt();
+        do {
+            Scanner scanner = new Scanner(System.in);
+           ;
 
-        switch (respuesta){
-            case 1:
-                Ingredientes nuevo =new Ingredientes();
-                System.out.println("ingrese el nombre del ingrediente");
-                nuevo.setNombre(scanner.next());
-                System.out.println("Ingrese la cantidad");
-                nuevo.setPeso(scanner.nextDouble());
-                System.out.println("¿Tu ingrediente es salado?1. Si \t2. No");
-                if (scanner.nextInt()==1){
-                    nuevo.setEsSalado(true);
-                }else {
-                   nuevo.setEsSalado(false);
-                }
-                System.out.println("Ingrediente creado");
-                ingredientesDisponibles.add(nuevo);
-                break;
 
-            case 2:
-                Receta nueva = new Receta();
-                System.out.println("Ingrese el nombre de la receta");
-                nueva.setNombre(scanner.next());
-                System.out.println("Ingrese el tiempo de preparacion");
-                nueva.setTiempoPreparacion(scanner.nextDouble());
-                System.out.println("Los ingredientes disponibles son: ");
-                for (int i = 0; i < ingredientesDisponibles.size() ; i++) {
-                    System.out.println(i+1+". "+ingredientesDisponibles.get(i).getNombre());
+            respuesta = scanner.nextInt();
 
-                }
-                ArrayList<Ingredientes> ingredientesReceta =new ArrayList<>();
-                System.out.println("Ingrese el numero del ingrediente correspondiente y de enter,"+
-                        "si ya no quiere agregar mas escriba 0");
-                do{
-                    if (respuesta!=0){
-                        ingredientesReceta.add(ingredientesDisponibles.get(respuesta-1));
+            switch (respuesta) {
+                case 1:
+                    Ingredientes nuevo = new Ingredientes();
+                    System.out.println("ingrese el nombre del ingrediente");
+                    nuevo.setNombre(scanner.next());
+                    System.out.println("Ingrese la cantidad");
+                    nuevo.setPeso(scanner.nextDouble());
+                    System.out.println("¿Tu ingrediente es salado?1. Si \t2. No");
+                    if (scanner.nextInt() == 1) {
+                        nuevo.setEsSalado(true);
+                    } else {
+                        nuevo.setEsSalado(false);
                     }
-                }while (respuesta !=0);
-                nueva.setIngredientes(ingredientesReceta);
-                ArrayList<String> pasosReceta =new ArrayList<>();
-                System.out.println("ingrede los pasos de uno en uno y de enter"+
-                        "Si ya no quiere agregar mas ingrese 0");
-                String res="";
-                do {
-                    if (res.equals("0")){
-                        pasosReceta.add(res);
+                    System.out.println("Ingrediente creado");
+                    ingredientesDisponibles.add(nuevo);
+                    break;
+
+                case 2:
+                    Receta nueva = new Receta();
+                    System.out.println("Ingrese el nombre de la receta");
+                    nueva.setNombre(scanner.next());
+                    System.out.println("Ingrese el tiempo de preparacion");
+                    nueva.setTiempoPreparacion(scanner.nextDouble());
+                    System.out.println("Los ingredientes disponibles son: ");
+                    for (int i = 0; i < ingredientesDisponibles.size(); i++) {
+                        System.out.println(i + 1 + ". " + ingredientesDisponibles.get(i).getNombre());
+
                     }
-                }while (res.equals("0"));
+                    ArrayList<Ingredientes> ingredientesReceta = new ArrayList<>();
+                    System.out.println("Ingrese el numero del ingrediente correspondiente y de enter," +
+                            "si ya no quiere agregar mas escriba 0");
+                    do {
+                        respuesta = scanner.nextInt();
+                        if (respuesta != 0) {
+                            ingredientesReceta.add(ingredientesDisponibles.get(respuesta - 1));
+                        }
+                    } while (respuesta != 0);
+                    respuesta = 9;
+                    nueva.setIngredientes(ingredientesReceta);
+                    ArrayList<String> pasosReceta = new ArrayList<>();
+                    System.out.println("ingrede los pasos de uno en uno y de enter" +
+                            "Si ya no quiere agregar mas ingrese 0");
+                    String res = "";
+                    do {
+                        res = scanner.next();
+                        if (!res.equals("0")) {
+                            pasosReceta.add(res);
+                        }
+                    } while (!res.equals("0"));
+                    nueva.setPasos(pasosReceta);
+                    miRecetario.getRecetas().add(nueva);
 
-                break;
+                    break;
 
-            case 3:
+                case 3:
+                    miRecetario.mostrarRecetario();
 
-                break;
+                    break;
 
-        }
+            }
 
-
+        }while (respuesta !=0);
 
     }
 
