@@ -131,17 +131,22 @@ public class Main {
 
                     }
                     System.out.println("Ingrese el numero del ingrediente que desea eliminar y de enter"+
-                            "Escria 0 si ya no desea eliminar mas");
-                    ArrayList<Ingredientes> ingredientesEliminados = new ArrayList<>();
+                            "Escriba 0 si ya no desea eliminar mas");
+
 
                     do {
                         respuesta = scanner.nextInt();
+                        respuesta=1;
                         if (respuesta != 0) {
-                            ingredientesEliminados.remove(ingredientesDisponibles.get(respuesta - 1));
+                           ingredientesDisponibles.remove(  respuesta-1);
                         }
+
+                        System.out.println("Ingrediente(s) eliminado(s)");
+                        System.out.println(ingredientesDisponibles);
                     } while (respuesta != 0);
-                    System.out.println("Ingrediente(s) eliminado(s)");
-                    System.out.println(ingredientesDisponibles);
+
+                    break;
+
 
 
             }
