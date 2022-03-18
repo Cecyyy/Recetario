@@ -51,7 +51,9 @@ public class Main {
         System.out.println("1º Agregar un ingrediente nuevo");
         System.out.println("2º Agregar una receta nueva");
         System.out.println("3º Ver mi recetario");
-        System.out.println("4º Salir");
+        System.out.println("4º Eliminar ingrediente");
+        System.out.println("5º Eliminar receta");
+        System.out.println("6º Salir");
         //pendiente opcion para salir
 
         int respuesta;
@@ -121,6 +123,9 @@ public class Main {
                     miRecetario.mostrarRecetario();
 
                     break;
+
+                case 4:
+
 
             }
 
