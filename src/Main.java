@@ -104,7 +104,7 @@ public class Main {
                     respuesta = 9;
                     nueva.setIngredientes(ingredientesReceta);
                     ArrayList<String> pasosReceta = new ArrayList<>();
-                    System.out.println("ingrede los pasos de uno en uno y de enter" +
+                    System.out.println("ingreee los pasos de uno en uno y de enter" +
                             "Si ya no quiere agregar mas ingrese 0");
                     String res = "";
                     do {
@@ -125,6 +125,23 @@ public class Main {
                     break;
 
                 case 4:
+                    System.out.println("Los ingredientes disponibles son: ");
+                    for (int i = 0; i < ingredientesDisponibles.size(); i++) {
+                        System.out.println(i + 1 + ". " + ingredientesDisponibles.get(i).getNombre());
+
+                    }
+                    System.out.println("Ingrese el numero del ingrediente que desea eliminar y de enter"+
+                            "Escria 0 si ya no desea eliminar mas");
+                    ArrayList<Ingredientes> ingredientesEliminados = new ArrayList<>();
+
+                    do {
+                        respuesta = scanner.nextInt();
+                        if (respuesta != 0) {
+                            ingredientesEliminados.remove(ingredientesDisponibles.get(respuesta - 1));
+                        }
+                    } while (respuesta != 0);
+                    System.out.println("Ingrediente(s) eliminado(s)");
+                    System.out.println(ingredientesDisponibles);
 
 
             }
