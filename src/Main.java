@@ -146,6 +146,25 @@ public class Main {
                     } while (respuesta != 0);
 
                     break;
+                case 5:
+
+                    System.out.println("Ingrese el numero de la receta que desea eliminar y de enter"+
+                            "Escriba 0 si ya no desea eliminar mas");
+
+
+                    do {
+                        respuesta = scanner.nextInt();
+                        respuesta=1;
+
+                        if (respuesta != 0) {
+
+                        }
+
+                        System.out.println("Ingrediente(s) eliminado(s)");
+                        System.out.println(ingredientesDisponibles);
+                    } while (respuesta != 0);
+
+                    break;
 
 
 
